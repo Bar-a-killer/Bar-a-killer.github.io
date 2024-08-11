@@ -55,3 +55,13 @@ footer {
     width: 100%;
     bottom: 0;
 }
+#login-form, #developer-interface {
+    background-color: #3e3e3e;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+#login-form h2, #developer-interface h2 {
+    color: #ffcc80;
+}
