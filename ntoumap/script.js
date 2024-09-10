@@ -3,9 +3,8 @@ function processText() {
     var inputText = document.getElementById('inputText').value;
     inputText = inputText.trim();
     inputText = inputText.toUpperCase();
-    let match = inputText.match(/([a-zA-Z]+)(\d+)/);
-    var locate = match[1];
-    var classnum = match[2];
+    var locate = inputText.slice(0, 3);
+    var classnum = inputText.slice(3);
     var error = 0;
     if(classnum.length === 3) {
         var floor = classnum[0];
@@ -14,13 +13,13 @@ function processText() {
         var floor = classnum[0] + classnum[1];
     }
     else {
-        error = 1;
+        error = 2;
     }
     
     const locations = {
         "AAC": "水生動物研究中心",
         "BOH": "人文大樓",
-        "СС3": "電算中心三樓",//
+        "CC3": "電算中心三樓",//
         "CE-": "工學院大樓",//
         "CLS": "生命科學院館",
         "EE1": "電機一館",//
@@ -68,8 +67,10 @@ function processText() {
     if(error === 0) {
         document.getElementById('result').textContent =  locate + floor + "樓" + classnum + "教室";
     }
+    else if(error === 1){
+        document.getElementById('result').textContent =  "此大樓不存在";
+    }
     else {
         document.getElementById('result').textContent =  "格式錯誤或此教室不存在，請檢查輸入格式";
     }
-    
 }
